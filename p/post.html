@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>האדם המגדיר - דוד תקומה</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-H4EMJ6BR0X"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-H4EMJ6BR0X');
+    </script>
+</head>
+<body>
+    <header>
+        <a href="index.html" id="home-button">לעמוד הראשי</a>
+    </header>
+    <main>
+        <section id="post-content">
+            <h2 id="post-title"></h2>
+            <p id="post-body"></p>
+        </section>
+        <!-- Loading spinner -->
+        <div id="loading-spinner" class="loading-spinner"></div>
+        <section id="post-actions">
+            <button id="share-button">🔗 שיתוף</button>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 כל הזכויות שמורות לדוד תקומה</p>
+        <div id="social-links">
+            <a href="https://www.facebook.com/hadges.hamon/" target="_blank">פייסבוק</a> |
+            <a href="https://x.com/David_Tkuma" target="_blank">טוויטר</a> |
+            <a href="mailto:definingperson@gmail.com" target="_blank">מייל</a>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to fetch post content
+            function fetchPostContent(title) {
+                fetch('posts-metadata.json')
+                    .then(response => response.json())
+                    .then(metadata => {
+                        const post = metadata.find(post => post.title === title);
+                        if (post) {
+                            fetch(post.filename)
+                                .then(response => response.text())
+                                .then(fullContent => {
+                                    document.getElementById('post-title').textContent = post.title;
+                                    
+                                    // Hide the loading spinner and show the post content
+                                    document.getElementById('loading-spinner').style.display = 'none';
+
+                                    document.getElementById('post-body').innerHTML = fullContent.replace(/\n/g, '<br>');
+                                });
+                        }
+                    })
+                    .catch(error => console.error('Error fetching the post content:', error));
+            }
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const title = urlParams.get('title');
+            fetchPostContent(title);
+
+            const shareButton = document.getElementById('share-button');
+            shareButton.addEventListener('click', function() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: document.getElementById('post-title').textContent,
+                        text: document.getElementById('post-body').textContent,
+                        url: window.location.href,
+                    }).then(() => {
+                        console.log('Successful share');
+                    }).catch((error) => {
+                        console.error('Error sharing:', error);
+                    });
+                } else {
+                    alert('Share not supported on this browser. Copy the link manually.');
+                }
+            });
+        });
+    </script>
+    <script src="scripts.js"></script>
+</body>
+</html>

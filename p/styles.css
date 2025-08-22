@@ -1,0 +1,520 @@
+body {
+    transition: background-image 0.5s ease-in-out, color 0.5s ease-in-out;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif;
+    background-image: url('cloud6.png'); /* ברירת מחדל */
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    direction: rtl;
+}
+/* Dark Mode */
+body.dark-mode {
+    transition: background-image 0.5s ease-in-out, color 0.5s ease-in-out;
+    background-image: url("hhhh.jpg") !important; /* Ensure it overrides */
+    background-size:cover;
+    background-position: center;
+    /*background-color: #121212;  Fallback in case image fails */
+}
+
+
+header {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid black 2px;
+    padding: 0px;
+    /*background-color: rgb(255, 255, 255,0.8);*/
+    background-color: rgba(252, 251, 246, 1);
+    /*background-color: rgba(179, 179, 179, 0.8);*/
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 55px;
+}
+
+#header left-header{
+    display: inline-block;
+}
+#right-header{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+}
+
+:root {
+    --headerMargin: 110px;
+  }
+main {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    margin-top: var(--headerMargin); /* תוספת להפרדה מהכותרת */
+}
+
+/* Top Video */
+#top-video {
+    position: relative;
+    margin: auto;
+    top: 80px; /* Prevents hiding behind the header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#top-video iframe {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    width: 100%;
+    max-width: 392px;
+    height: 220px;
+    border: 3px solid #ffffff;
+}
+
+/* Video Links Section */
+#video-links {
+    display: flex;
+    justify-content: center;
+    gap: 150px;
+    margin: 40px 0;
+}
+
+.video-box {
+    width: 30%;
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    background: #f9f9f9;
+    transition: transform 0.3s ease-in-out, background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    height: 190px;
+}
+
+.video-box:hover {
+    transform: scale(1.05);
+}
+
+.video-box img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.video-box p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+
+
+
+#product {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+#product img {
+    max-width: 200px;
+    margin-right: 20px;
+}
+#about, #description {
+    max-width: 600px;
+    text-align: justify;
+}
+
+#blog {
+    margin-top: 40px;
+}
+
+#logo {
+    max-height: 50px;
+    border: none
+}
+
+#purchase-button, #home-button {
+    background-color: #dd265a;
+    color: white;
+    border: 2px solid black;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 00px; /* פינות מעוגלות */
+    font-weight: bold; /* טקסט bold */
+}
+
+#niv-button {
+    background-color: #fefeff;
+    color: rgb(0, 0, 0);
+    border: 2px solid black;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 00px; /* פינות מעוגלות */
+    font-weight: bold; /* טקסט bold */
+}
+
+#sidebar-toggle {
+    background-color: rgba(255, 255, 255, 0);
+    color: black;
+    border: none;
+    padding: 10px 30px;
+    cursor: pointer;
+    font-size: 18px;
+    text-decoration: none;
+    border-radius: 00px; /* פינות מעוגלות */
+    font-weight: bold; /* טקסט bold */
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    /*margin-top: 50px; תוספת להפרדה מהכותרת */
+    left: -400px;
+    width: 200px;
+    height: 100%;
+    /*background-color: rgba(189, 188, 219, 0.9);*/
+    /*background-image: url('hhh.png');*/
+    background-color:rgba(252, 251, 246, 1);
+    transition: left 0.3s ease, background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    z-index: 999;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+#categories ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#categories li {
+    margin-top: 00px;
+    padding: 0px;
+    border-bottom: 0.1px solid grey;
+    
+}
+
+#categories #firstCategory {
+    margin-top: var(--headerMargin);
+    padding: 0px;
+    border-bottom: 0.1px solid grey;    
+}
+
+#categories a {
+    text-decoration: none;
+    color: #000;
+    background-color: rgb(0,0,0,0);
+    padding: 15px 15px;
+    border-radius: 0px;
+    display: block;
+    font-weight: bold; /* טקסט bold */
+    align-items: center;
+}
+
+#author-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: justify;
+    margin-top: auto;
+}
+
+#author-info img {
+    max-width: 100px;
+    margin-bottom: 10px;
+    align-self: center;
+}
+
+#search-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#search-input {
+    width: 80%;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 00px; /* פינות מעוגלות */
+    font-weight: bold; /* טקסט bold */
+    border: 1px solid black;
+}
+
+#search-button {
+    margin-top: 2px;
+    padding: 10px;
+    border-radius: 0px; /* פינות מעוגלות */
+    background-color: rgba(121, 121, 121, 0.1);
+    font-weight: bold; /* טקסט bold */
+    cursor: pointer;
+    border: none;
+}
+
+#cancel-button {
+    margin-top: 2px;
+    padding: 10px;
+    border-radius: 0px; /* פינות מעוגלות */
+    background-color: rgba(189, 188, 219, 0.4);
+    font-weight: bold; /* טקסט bold */
+    cursor: pointer;
+    border: none;
+}
+
+#posts {
+    margin-top: 20px;
+}
+
+/* Loading spinner styles */
+.loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #000;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    margin: 50px auto;
+}
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+footer {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.post {
+    transition:0.3s ease-in-out, background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 0px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+.post:hover {
+    scale: 1.05;
+}
+
+#purchase {
+    text-align: center;
+    
+}
+#purchase p{
+    text-align: center;
+    line-height: 2.5;
+    font-size: 18px;
+    display: inline-block;
+    margin-bottom: 20px;
+    
+}
+
+.QA{
+    text-align: justify;
+    line-height: 2.5;
+    font-size: 15px;
+    max-width: 600px;
+}
+
+#niv_shop {
+    text-align: center;
+    
+}
+
+
+#purchase img {
+    max-width: 300px;
+    margin: 20px 0;
+}
+
+#purchase-form {
+    display: inline-block;
+    text-align: left;
+}
+
+#purchase-form label, #purchase-form input, #confirm-purchase {
+    display: block;
+    margin: 10px 0;
+    border-radius: 10px; /* פינות מעוגלות */
+    font-weight: bold; /* טקסט bold */
+}
+
+
+#social-links a {
+    transition: color 0.5s ease-in-out, color 0.5s ease-in-out;
+    color: #4c68af;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold; /* טקסט bold */
+}
+.dark-mode #social-links a{
+    transition: color 0.5s ease-in-out, color 0.5s ease-in-out;
+    color: rgb(22, 11, 171);
+}
+
+#social-links a:hover {
+    text-decoration: underline;
+}
+
+#post-actions {
+    margin-top: 20px;
+}
+
+#post-actions button {
+    background-color: #dd265a;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px; /* פינות מעוגלות */
+    font-weight: bold; /* טקסט bold */
+    margin-right: 10px;
+}
+
+
+/* Dark Mode */
+.dark-mode {
+    background-color: #1212123a;
+    color: #ffffff;
+}
+.dark-mode main {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    background-color: rgba(75, 75, 75, 0.8);
+    /*background-color: rgba(0, 0, 0, 0.8);*/
+}
+.dark-mode footer {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    background-color: rgba(75, 75, 75, 0.8);
+    /*background-color: rgba(124, 121, 129, 0.8);*/
+    /*background-color: rgba(0, 0, 0, 0.8);*/
+}
+.dark-mode header {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    background-color: rgb(113, 95, 123);
+}
+/* Dark Mode for Sidebar */
+.dark-mode .sidebar {
+    transition: left 0.3s ease background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    background-color: rgb(113, 95, 123);
+    color: #fff;
+}
+/* Dark Mode for Video Boxes */
+.dark-mode .video-box {
+    transition: transform 0.3s ease-in-out, background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    background: #333;
+    border: 1px solid #555;
+}
+.dark-mode #top-video iframe {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    border: 3px solid #333;
+}
+.dark-mode .video-box:hover {
+    transition: transform 0.3s ease-in-out, background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+    transform: scale(1.05);
+}
+.dark-mode .post {
+    background-color: rgba(86, 68, 106, 0.464);
+}
+
+/* Style the Dark Mode Button */
+#dark-mode-toggle {
+    width: 50px;
+    height: 25px;
+    background: #ddd;
+    border-radius: 25px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    transition: background 0.3s ease-in-out;
+}
+.toggle-circle {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    left: 5px;
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+}
+.toggle-circle::before {
+    transition: opacity 0.3s ease-in-out;
+}
+/* Dark Mode Toggle - Active State */
+.dark-mode #dark-mode-toggle {
+    background: #222;
+}
+.dark-mode .toggle-circle {
+    transform: translateX(25px);
+    background: white;
+}
+.dark-mode .toggle-circle::before {
+    transition: opacity 0.3s ease-in-out;
+    color:rgb(0, 0, 0)
+}
+
+/* Styles for devices with a screen width of 600px or less (typically phones) */
+/* It is common to assume phone width >= 320 px*/
+@media (max-width: 600px) {
+    header {
+        left: 0;
+        width: 100vw; /* Ensures it spans the full screen */
+    }
+    #product {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    #product img {
+        max-width: 200px;
+        margin-right: 00px;
+    }
+    /*
+    #product .container{
+        max-width: 600px;
+        text-align: center;
+    }*/
+
+    #blog_welcome {
+        text-align: justify;
+        max-width: 350px;
+    }
+
+    #video-links {
+        flex-direction: column; /* Stack videos vertically */
+        align-items: center; /* Center them */
+        gap: 20px; /* Reduce space between them */
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .video-box {
+        width: 90%; /* Make videos take up most of the screen width */
+        max-width: 350px; /* Limit max width */
+    }
+}
+
+html, body {
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+    width: 100%;
+}
